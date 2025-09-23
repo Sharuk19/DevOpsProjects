@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "sharukahamed/myportfolio:latest"
-        GIT_REPO = "https://github.com/Sharuk19/DevOpsProjects.git"  // replace with your repo
+        IMAGE_NAME = "docker.io/sharuk19/docker:latest"
+        GIT_REPO = "https://github.com/Sharuk19/DevOpsProjects.git"   // replace with your repo
     }
 
     stages {
@@ -16,17 +16,15 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Dockerfile is inside myapp folder
                     bat """
-                        docker build -t %IMAGE_NAME% -f myapp/Dockerfile myapp
+                        docker build -t %IMAGE_NAME% .
                     """
                 }
             }
         }
-
         stage('Push to Docker Hub') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     bat """
                         echo %DOCKER_PASS% | docker login -u %DOCKER_USER% --password-stdin
                         docker push %IMAGE_NAME%
@@ -34,9 +32,15 @@ pipeline {
                 }
             }
         }
+        stage("Create a Container") {
+            steps{
+                bat 'docker run -d -p8081:80 --name myapp sharuk19/docker:latest'
+            }
+        }
     }
 
+
     triggers {
-        pollSCM('H/5 * * * *') // Poll GitHub every 5 minutes for changes
+        pollSCM('H/5 * * * *')   // Poll GitHub every 5 minutes for changes
     }
 }
