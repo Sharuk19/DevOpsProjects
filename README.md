@@ -30,7 +30,7 @@ project1/
 
 ## Pre-Requisites
 
-Jenkins installed with Pipeline and Docker Pipeline plugins
-Docker installed on Jenkins server
-Docker Hub account & repository created
-Jenkins credential ID: dockerhub-credentials
+Jenkins installed with Pipeline and Docker Pipeline plugins<br>
+Docker installed on Jenkins server<br>
+Docker Hub account & repository created<br>
+Jenkins credential ID: dockerhub-credentials<br>
