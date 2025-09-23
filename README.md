@@ -1,4 +1,4 @@
-# DevOpsProjects
+# Docker, Jenkins and Github CI/CD
 # DevOps Project - Jenkins CI/CD with Docker  
 
 This project demonstrates how to build, test, and push a Docker image to **Docker Hub** using a **Jenkins Pipeline (Jenkinsfile)**.  
