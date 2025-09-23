@@ -22,11 +22,11 @@ This project demonstrates how to build, test, and push a Docker image to **Docke
 ---
 
 ## Project Structure  
-DevOpsProjects/
-project1/
-   Dockerfile
-   index.html
-   Jenkinsfile
+DevOpsProjects/<br>
+project1/<br>
+   Dockerfile<br>
+   index.html<br>
+   Jenkinsfile<br>
 
 ## Pre-Requisites
 
