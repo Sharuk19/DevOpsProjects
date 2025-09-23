@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = "docker.io/sharuk19/docker:latest"
-        GIT_REPO = "https://github.com/Sharuk19/DevOpsProjects.git"   // replace with your repo
+        GIT_REPO = "https://github.com/Sharuk19/docker-jenkins-github-cicd.git"   // replace with your repo
     }
 
     stages {
